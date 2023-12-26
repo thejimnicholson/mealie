@@ -34,7 +34,12 @@ spec:
         volumeMounts:                       # < the volume mount in the container. Look at the relation volumelabel->pvc->pv
         - mountPath: /app/data               # < mount location in the container
           name: mealie-storage              # < volumelabel configured earlier in the yaml file
+        - mountPath: /app/data.new               # < mount location in the container
+          name: mealie-storage-new
       volumes:
       - name: mealie-storage
         persistentVolumeClaim:
           claimName: mealie-storage
+      - name: mealie-storage-new
+        persistentVolumeClaim:
+          claimName: mealie-storage-new
