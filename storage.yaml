@@ -33,3 +33,16 @@ spec:
     requests:
       storage: 5Gi
   volumeName: mealie-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mealie-storage-new
+  namespace: mealie
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
